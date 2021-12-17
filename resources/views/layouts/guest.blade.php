@@ -17,8 +17,17 @@
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
     <body>
+
+        <nav class="w-full p-4 bg-gray-100">
+            <a href="/" class="bg-blue-400 px-4 py-2 rounded-full text-white">
+                Go Back
+            </a>
+        </nav>
+
         <div class="font-sans text-gray-900 antialiased">
-            {{ $slot }}
+
+            @yield('content')
+
         </div>
     </body>
 </html>
