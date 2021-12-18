@@ -1,6 +1,19 @@
-@extends('layouts.layout')
+@extends('layouts.guest')
 
 @section('content')
+<div class="w-full h-screen back">
+  <div class="w-10/12 mx-auto py-14">
+      <h1 class="text-white text-6xl font-extrabold ">Find your great stay! <br> Make your reservations.</h1>
+      <br><br>
+      <p class="text-white font-extrabold">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum itaque sit et molestias assumenda nobis architecto? Ullam, architecto fugit similique quaerat est voluptates ipsum? Animi suscipit doloribus earum ipsa est?
+      </p>
+      <br><br>
+      <a href="/rooms" class="rounded shadow border-4 p-2 hover:bg-blue-900 hover:border-blue-900 text-white font-extrabold">
+          Find Rooms
+      </a>
+  </div>
+</div>
     <div>
 <div class="bg-white py-4">
     <div class="max-w-2xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
