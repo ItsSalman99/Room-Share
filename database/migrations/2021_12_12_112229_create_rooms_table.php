@@ -17,6 +17,7 @@ class CreateRoomsTable extends Migration
             $table->increments('id');
             $table->string('room_name');
             $table->string('home_type');
+            $table->string('img');
             $table->integer('total_occupancy');
             $table->integer('total_bedrooms');
             $table->integer('total_bathrooms');

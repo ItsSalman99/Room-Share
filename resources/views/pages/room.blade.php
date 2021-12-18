@@ -6,7 +6,7 @@
     <div class="bg-white w-11/12 mx-auto py-8 rounded-lg shadow-md">
         <div class="grid grid-cols-2 gap-8 px-8">
             <div>
-                <img src="{{asset('assets/imgs/room.jpg')}}" class="rounded-xl">
+                <img src="{{asset($room->img .'.jpg')}}" class="rounded-xl">
             </div>
             <div>
                 <h1 class="text-4xl font-extrabold">{{$room->room_name}} at {{$room->address}}</h1>

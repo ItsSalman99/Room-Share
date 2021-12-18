@@ -17,6 +17,7 @@ class RoomSeeder extends Seeder
         Room::create([
             'room_name' => '2 Rooms',
             'home_type' => 'first_floor',
+            'img' => 'storage/rooms/gulshan-room',
             'summary' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam neque praesentium itaque, veritatis in hic ullam!',
             'total_occupancy' => 16,
             'total_bedrooms' => 2,
@@ -33,6 +34,7 @@ class RoomSeeder extends Seeder
         Room::create([
             'room_name' => '4 Rooms',
             'home_type' => 'whole_house',
+            'img' => 'storage/rooms/malircity-room',
             'summary' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam neque praesentium itaque, veritatis in hic ullam!',
             'total_occupancy' => 10,
             'total_bedrooms' => 3,
@@ -49,6 +51,7 @@ class RoomSeeder extends Seeder
         Room::create([
             'room_name' => '2 Rooms',
             'home_type' => '3rd_floor',
+            'img' => 'storage/rooms/nazimabad-room',
             'summary' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam neque praesentium itaque, veritatis in hic ullam!',
             'total_occupancy' => 3,
             'total_bedrooms' => 2,
@@ -65,6 +68,7 @@ class RoomSeeder extends Seeder
         Room::create([
             'room_name' => '4 Rooms',
             'home_type' => 'whole_floor',
+            'img' => 'storage/rooms/dha-room',
             'summary' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam neque praesentium itaque, veritatis in hic ullam!',
             'total_occupancy' => 14,
             'total_bedrooms' => 2,
@@ -81,6 +85,7 @@ class RoomSeeder extends Seeder
         Room::create([
             'room_name' => '2 Rooms',
             'home_type' => 'first_floor',
+            'img' => 'storage/rooms/korangi-room',
             'summary' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam neque praesentium itaque, veritatis in hic ullam!',
             'total_occupancy' => 3,
             'total_bedrooms' => 1,
@@ -97,6 +102,7 @@ class RoomSeeder extends Seeder
         Room::create([
             'room_name' => '1 Room',
             'home_type' => '4rth_floor',
+            'img' => 'storage/rooms/shahfaisal-room',
             'summary' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam neque praesentium itaque, veritatis in hic ullam!',
             'total_occupancy' => 1,
             'total_bedrooms' => 1,
@@ -113,6 +119,7 @@ class RoomSeeder extends Seeder
         Room::create([
             'room_name' => '4 Rooms',
             'home_type' => '5th_floor',
+            'img' => 'storage/rooms/clifton-room',
             'summary' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam neque praesentium itaque, veritatis in hic ullam!',
             'total_occupancy' => 15,
             'total_bedrooms' => 2,
@@ -129,6 +136,7 @@ class RoomSeeder extends Seeder
         Room::create([
             'room_name' => '4 Rooms Flat',
             'home_type' => 'first_floor',
+            'img' => 'storage/rooms/bostan-room',
             'summary' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam neque praesentium itaque, veritatis in hic ullam!',
             'total_occupancy' => 11,
             'total_bedrooms' => 2,
@@ -145,6 +153,7 @@ class RoomSeeder extends Seeder
         Room::create([
             'room_name' => '4 Rooms Flat',
             'home_type' => 'first_floor',
+            'img' => 'storage/rooms/falaknaz-room',
             'summary' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam neque praesentium itaque, veritatis in hic ullam!',
             'total_occupancy' => 10,
             'total_bedrooms' => 2,
@@ -161,6 +170,7 @@ class RoomSeeder extends Seeder
         Room::create([
             'room_name' => '2 Rooms Flat',
             'home_type' => 'shared_room',
+            'img' => 'storage/rooms/tntappartments-room',
             'summary' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam neque praesentium itaque, veritatis in hic ullam!',
             'total_occupancy' => 2,
             'total_bedrooms' => 2,
