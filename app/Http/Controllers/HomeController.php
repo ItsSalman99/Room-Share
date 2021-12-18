@@ -12,4 +12,12 @@ class HomeController extends Controller
         $rooms = Room::inRandomOrder()->limit(9)->get();
         return view('pages.index')->with(['rooms' =>$rooms]);
     }
+
+    public function rooms()
+    {
+        $rooms = Room::paginate(9);
+
+        return view('pages.rooms')->with(['rooms'=>$rooms]);
+    }
+
 }
