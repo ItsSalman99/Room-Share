@@ -20,4 +20,12 @@ class HomeController extends Controller
         return view('pages.rooms')->with(['rooms'=>$rooms]);
     }
 
+    public function room($id)
+    {
+        $room = Room::findOrFail($id);
+
+        return view('pages.room')->with(['room' => $room]);
+
+    }
+
 }
