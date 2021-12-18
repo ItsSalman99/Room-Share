@@ -1,11 +1,16 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+@extends('layouts.guest')
 
+@section('content')
+    
+@endsection
+    <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 text-alig">
+        <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+            <div class="my-4">
+                <a href="/">
+                    <img src="/assets/imgs/logo.png" class="w-24 mx-auto h-24 fill-current text-gray-500" />
+                </a>
+            </div>
+            
         <div class="mb-4 text-sm text-gray-600">
             {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
         </div>
@@ -21,9 +26,9 @@
                 @csrf
 
                 <div>
-                    <x-button>
+                    <button type="submit" class='inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150'>
                         {{ __('Resend Verification Email') }}
-                    </x-button>
+                    </button>
                 </div>
             </form>
 
@@ -35,5 +40,5 @@
                 </button>
             </form>
         </div>
-    </x-auth-card>
-</x-guest-layout>
+        </div>
+    </div>
