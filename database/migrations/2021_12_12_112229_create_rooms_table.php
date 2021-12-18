@@ -15,8 +15,8 @@ class CreateRoomsTable extends Migration
     {
         Schema::create('rooms', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('room_name');
             $table->string('home_type');
-            $table->string('room_type');
             $table->integer('total_occupancy');
             $table->integer('total_bedrooms');
             $table->integer('total_bathrooms');
@@ -28,10 +28,7 @@ class CreateRoomsTable extends Migration
             $table->boolean('has_heating');
             $table->boolean('has_internet');
             $table->string('price');
-            $table->dateTime('published_at');
-            $table->integer('owner_id');
-            $table->double('latitude');
-            $table->double('longitude');
+            $table->integer('owner_id')->default(1); //for now... will update later 
             $table->timestamps();
         });
     }
