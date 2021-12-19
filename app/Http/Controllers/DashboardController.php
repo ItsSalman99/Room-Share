@@ -22,4 +22,8 @@ class DashboardController extends Controller
         return view('dashboard.index')->with(['rooms'=>$rooms]);
 
     }
+    public function addrooms()
+    {
+        return view('dashboard.addrooms');
+    }
 }
