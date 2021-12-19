@@ -14,7 +14,7 @@
             </div>
 
             <div class="w-3/5 rounded-lg shadow-sm mx-auto bg-white my-4 py-4 px-4">
-                <form>
+                <form enctype="multipart/form-data" action="{{ route('saverooms') }}" method="POST">
                     @csrf
                     <label for="Room Name" class='mt-4 block font-medium text-sm text-gray-700'>
                         Name Your Room
