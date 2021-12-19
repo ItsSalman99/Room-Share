@@ -18,12 +18,15 @@
     <!-- This example requires Tailwind CSS v2.0+ -->
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 py-8">
 
-        <button class="flex justify-between bg-gray-800 text-white rounded shadow-sm my-4 px-4 py-2">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
-          </svg>
-          <span class="text-sm ml-2">Add New</span>
+    <button class=" bg-gray-800 text-white rounded shadow-sm my-4 px-4 py-2">
+          <a href="{{ route('addrooms') }}" class="flex justify-between">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd" />
+            </svg>
+            <span class="text-sm ml-2">Add New</span>
+          </a>
         </button>
+
 
         <div class="flex flex-col">
             <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
