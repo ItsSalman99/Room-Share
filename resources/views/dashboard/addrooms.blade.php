@@ -10,11 +10,30 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     List Your Rooms
+                    @if ($errors->any())
+                        <div class="my-4">
+                            <div class="font-medium text-red-600">
+                                {{ __('Whoops! Something went wrong.') }}
+                            </div>
+                            <ul class="mt-3 list-disc list-inside text-sm text-red-600">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    @if (session()->has('message'))
+                        <div class="w-full bg-green-500 p-5 rounded my-8">
+                            <span class="text-white">
+                                {{session()->get('message')}}
+                            </span>
+                        </div>
+                    @endif
                 </div>
             </div>
 
             <div class="w-3/5 rounded-lg shadow-sm mx-auto bg-white my-4 py-4 px-4">
-                <form enctype="multipart/form-data" action="{{ route('saverooms') }}" method="POST">
+                <form enctype="multipart/form-data" action="{{ route('createRooms') }}" method="POST">
                     @csrf
                     <label for="Room Name" class='mt-4 block font-medium text-sm text-gray-700'>
                         Name Your Room
