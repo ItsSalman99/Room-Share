@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RoomsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,5 +23,5 @@ Route::get('/room/{id}', [HomeController::class, 'room'])->name('singleroom');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth','verified'])->name('dashboard');
 Route::get('/Add-Rooms', [DashboardController::class, 'addrooms'])->middleware(['auth','verified'])->name('addrooms');
-Route::post('/saverooms', [DashboardController::class, 'saverooms'])->middleware(['auth','verified'])->name('saverooms');
+Route::post('/Add-Rooms', [RoomsController::class, 'Create'])->middleware(['auth','verified'])->name('createRooms');
 require __DIR__.'/auth.php';
