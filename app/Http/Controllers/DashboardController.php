@@ -17,11 +17,18 @@ class DashboardController extends Controller
 
     public function index()
     {
-        $rooms = Room::paginate(9);
 
-        return view('dashboard.index')->with(['rooms'=>$rooms]);
+        return view('dashboard.index');
 
     }
+
+    public function rooms()
+    {
+        $rooms = Room::paginate(9);
+
+        return view('dashboard.rooms.index')->with(['rooms'=>$rooms]);
+    }
+
     public function addrooms()
     {
         return view('dashboard.addrooms');
