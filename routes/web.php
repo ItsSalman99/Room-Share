@@ -22,6 +22,7 @@ Route::get('/room/{id}', [HomeController::class, 'room'])->name('singleroom');
 
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth','verified'])->name('dashboard');
+Route::get('/dashboard/rooms', [DashboardController::class, 'rooms'])->middleware(['auth','verified'])->name('rooms.index');
 Route::get('/Add-Rooms', [DashboardController::class, 'addrooms'])->middleware(['auth','verified'])->name('addrooms');
 Route::post('/Add-Rooms', [RoomsController::class, 'Create'])->middleware(['auth','verified'])->name('createRooms');
 require __DIR__.'/auth.php';
