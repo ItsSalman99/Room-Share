@@ -24,7 +24,7 @@ class DashboardController extends Controller
 
     public function rooms()
     {
-        $rooms = Room::paginate(9);
+        $rooms = Room::orderBy('id')->simplePaginate(9);
 
         return view('dashboard.rooms.index')->with(['rooms'=>$rooms]);
     }
