@@ -28,7 +28,7 @@ class CreateRoomsTable extends Migration
             $table->boolean('has_air_con');
             $table->boolean('has_heating');
             $table->boolean('has_internet');
-            $table->string('price');
+            $table->bigInteger('price');
             $table->integer('owner_id')->default(1); //for now... will update later 
             $table->timestamps();
         });
