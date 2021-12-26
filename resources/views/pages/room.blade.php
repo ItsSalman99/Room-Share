@@ -53,10 +53,15 @@
                         <span class="underline">Pkr. 2000</span>
                     </div>
                 </div>
-                <br>                   
+                <br>
+                <form action="{{ route('roomReserved') }}" method="post">
+                    @csrf
+                    <input type="hidden" name="roomId" value="{{$room->id}}">
+                    
                     <button type="submit" class="bg-blue-900 text-white text-lg w-full py-4 rounded-lg">
                         Reserve
                     </button>
+                </form>
             </div>
         </div>
     </div>
