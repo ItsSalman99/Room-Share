@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReservationsController;
@@ -30,4 +31,10 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['au
 Route::get('/dashboard/rooms', [DashboardController::class, 'rooms'])->middleware(['auth','verified'])->name('rooms.index');
 Route::get('/Add-Rooms', [DashboardController::class, 'addrooms'])->middleware(['auth','verified'])->name('addrooms');
 Route::post('/Add-Rooms', [RoomsController::class, 'Create'])->middleware(['auth','verified'])->name('createRooms');
+
+//Customer Routes
+Route::post('/storecustomer', [CustomerController::class, 'store'])->name('storeCustomer');
+
+Route::get('/profile', [DashboardController::class, 'profile'])->middleware(['auth'])->name('profileinfo');
+
 require __DIR__.'/auth.php';
