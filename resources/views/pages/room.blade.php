@@ -6,10 +6,11 @@
     <div class="bg-white w-11/12 mx-auto py-8 rounded-lg shadow-md">
         <div class="grid grid-cols-2 gap-8 px-8">
             <div>
-                <img src="{{asset($room->img .'.jpg')}}" class="rounded-xl">
+                <img src="{{asset('storage/rooms/'.$room->img)}}" class="rounded-xl">
             </div>
             <div>
                 <h1 class="text-4xl font-extrabold">{{$room->room_name}} at {{$room->address}}</h1>
+                <span class="text-sm bg-gray-800 rounded-full shadow text-white px-2">Owner: {{$room->owner->name}}</span>
                 <br>
                 <h1 class="text-xl text-gray-600 font-bold">Pkr. {{$room->price}}/Month</h1>
                 <hr><br>

@@ -24,8 +24,12 @@
       <div>
         <h1 class="text-2xl">Your Reservation</h1>
         <div class="py-2">
-          <span class="font-bold">Dates</span>
-          <input type="date" name="" id="" class="rounded-lg border-2 border-gray-700 w-full">
+          <span class="font-bold">Check In Date</span>
+          <input type="date" name="start_date" id="" class="rounded-lg border-2 border-gray-700 w-full">
+        </div>
+        <div class="py-2">
+          <span class="font-bold">Check Out Date</span>
+          <input type="date" name="end_date" id="" class="rounded-lg border-2 border-gray-700 w-full">
         </div>
         <div class="py-2">
           <span class="font-bold">Guests</span>
@@ -55,6 +59,52 @@
       </div>
     </div>
     @endif
+    <div class="border-2 p-4 rounded-lg">
+      <!-- Session Status -->
+      @if (session('status'))
+          <div class='font-medium text-sm text-green-600'>
+              {{ $status }}
+          </div>
+      @endif
+
+      <!-- Validation Errors -->
+      @if ($errors->any())
+          <div class="my-4">
+              <div class="font-medium text-red-600">
+                  {{ __('Whoops! Something went wrong.') }}
+              </div>
+
+              <ul class="mt-3 list-disc list-inside text-sm text-red-600 bg-gray-100 p-2 rounded">
+                  @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                  @endforeach
+              </ul>
+          </div>
+      @endif
+       <form action="{{ route('storeCustomer') }}" method="POST">
+        @csrf
+        <div class="py-2">
+          <span class="font-bold">Your Name</span>
+          <input type="text" name="name" id="" class="rounded-lg border-2 border-gray-700 w-full">
+        </div>
+        <div class="py-2">
+          <span class="font-bold">Your Email</span>
+          <input type="email" name="email" id="" class="rounded-lg border-2 border-gray-700 w-full">
+        </div>
+        <div class="py-2">
+          <span class="font-bold">Your Password</span>
+          <input type="password" name="password" id="" class="rounded-lg border-2 border-gray-700 w-full">
+        </div>
+        <div class="py-2">
+          <span class="font-bold">Confirm Password</span>
+          <input type="password" name="password_confirmation" id="" class="rounded-lg border-2 border-gray-700 w-full">
+        </div>
+        <button type="submit" class="bg-gray-800 w-full rounded-lg shadow text-white p-4">
+          Let's Go
+        </button>
+
+       </form>
+    </div>
   </div>
 
 
