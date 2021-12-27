@@ -17,6 +17,7 @@ class Room extends Model
         'total_bedrooms',
         'total_bathrooms',
         'summary',
+        'description',
         'address',
         'has_tv',
         'has_kitchen',
@@ -28,5 +29,15 @@ class Room extends Model
         'created_at',
         'updated_at'
     ];
+
+    /**
+     * Get the user associated with the Room
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function owner()
+    {
+        return $this->belongsTo(User::class, 'owner_id', 'id');
+    }
 
 }

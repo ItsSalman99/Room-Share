@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Room;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class RoomsController extends Controller
@@ -49,6 +50,7 @@ class RoomsController extends Controller
             'total_bedrooms' => $request->total_bedrooms,
             'total_bathrooms' => $request->total_bathrooms,
             'summary' => $request->room_summary,
+            'description' => $request->room_description,
             'address' => $request->address,
             'has_tv' => $request->has_tv,
             'has_kitchen' => $request->has_kitchen,
@@ -56,6 +58,7 @@ class RoomsController extends Controller
             'has_heating' => $request->has_heating,
             'has_internet' => $request->has_internet,
             'price' => $request->price,
+            'owner_id' => Auth::user()->id,
         ]);
 
         return redirect()->route('addrooms')->withMessage('Room has been added successfully!');

@@ -22,14 +22,16 @@ class CreateRoomsTable extends Migration
             $table->integer('total_bedrooms');
             $table->integer('total_bathrooms');
             $table->string('summary');
+            $table->text('description');
             $table->text('address');
             $table->boolean('has_tv');
             $table->boolean('has_kitchen');
             $table->boolean('has_air_con');
             $table->boolean('has_heating');
             $table->boolean('has_internet');
-            $table->bigInteger('price');
-            $table->integer('owner_id')->default(1); //for now... will update later 
+            $table->bigInteger('price')->nullable();
+            $table->unsignedInteger('owner_id');
+            $table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
