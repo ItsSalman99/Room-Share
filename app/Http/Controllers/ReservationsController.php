@@ -20,10 +20,12 @@ class ReservationsController extends Controller
         if (Cart::count() > 0) {
             Cart::destroy();
         }
-        $room = Room::findOrfail($request->roomId);
+        else if (Cart::count() == 0)
+        {
+            $room = Room::findOrfail($request->roomId);
 
-        $cart = Cart::add($room->id,$room->room_name,1,$room->price);
-
+            $cart = Cart::add($room->id,$room->room_name,1,$room->price);
+        }
         return redirect()->route('reservation')->withMessage('You have successfully reserve a room');
     }
 
