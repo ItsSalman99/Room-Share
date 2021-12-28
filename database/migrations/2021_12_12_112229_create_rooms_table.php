@@ -23,6 +23,7 @@ class CreateRoomsTable extends Migration
             $table->integer('total_bathrooms');
             $table->string('summary');
             $table->text('description');
+            $table->string('city');
             $table->text('address');
             $table->boolean('has_tv');
             $table->boolean('has_kitchen');

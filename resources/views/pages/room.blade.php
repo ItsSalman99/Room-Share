@@ -9,7 +9,7 @@
                 <img src="{{asset('storage/rooms/'.$room->img)}}" class="rounded-xl">
             </div>
             <div>
-                <h1 class="text-4xl font-extrabold">{{$room->room_name}} at {{$room->address}}</h1>
+                <h1 class="text-4xl font-extrabold">{{$room->room_name}} at {{$room->city}}</h1>
                 <span class="text-sm bg-gray-800 rounded-full shadow text-white px-2">Owner: {{$room->owner->name}}</span>
                 <br>
                 <h1 class="text-xl text-gray-600 font-bold">Pkr. {{$room->price}}/Month</h1>
@@ -17,6 +17,9 @@
                 <h1 class="text-xl font-bold">Summary:</h1>
                 <span>{{$room->summary}}</span>
                 <br><br>
+                <h1 class="text-xl font-bold">Address:</h1>
+                <textarea readonly class="w-full rounded-xl">{{$room->address}}</textarea>
+                <br>
                 <p>Location: <b>{{$room->address}}</b></p>
                 <p>Has Tv: <b>{{$room->has_tv = 1 ? 'Yes' : 'No'}}</b></p>
                 <p>Has Kitchen: <b>{{$room->has_kitchen = 1 ? 'Yes' : 'No'}}</b></p>
