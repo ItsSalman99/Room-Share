@@ -9,6 +9,15 @@ use Illuminate\Support\Facades\Storage;
 
 class RoomsController extends Controller
 {
+
+    public function SearchByCity(Request $request)
+    {
+        $rooms = Room::where('city', $request->city)->paginate(9);
+
+        return view('pages.rooms')->with(['rooms' => $rooms]);
+
+    }
+
     public function Create(Request $request)
     {
         //Validation input requests

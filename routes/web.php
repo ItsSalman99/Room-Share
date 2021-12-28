@@ -25,6 +25,7 @@ Route::get('/room/{id}', [HomeController::class, 'room'])->name('singleroom');
 Route::get('/reservations', [ReservationsController::class, 'index'])->name('reservation');
 Route::post('/reserved', [ReservationsController::class,'ReserveRoom'])->name('roomReserved');
 Route::get('/destroyReservation', [ReservationsController::class, 'destroyReservation'])->name('destroyReservations');
+Route::get('/room-by', [RoomsController::class, 'SearchByCity'])->name('searchroom');
 
 //Admin Routes
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth','verified'])->name('dashboard');
