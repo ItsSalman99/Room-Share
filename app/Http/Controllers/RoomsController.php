@@ -30,6 +30,7 @@ class RoomsController extends Controller
             'total_bathrooms' => 'required',
             'room_summary' => 'required',
             'address' => 'required',
+            'city' => 'required',
             'has_tv' => 'required',
             'has_kitchen' => 'required',
             'has_aircondition' => 'required',
@@ -60,6 +61,7 @@ class RoomsController extends Controller
             'total_bathrooms' => $request->total_bathrooms,
             'summary' => $request->room_summary,
             'description' => $request->room_description,
+            'city' => $request->city,
             'address' => $request->address,
             'has_tv' => $request->has_tv,
             'has_kitchen' => $request->has_kitchen,
@@ -73,4 +75,15 @@ class RoomsController extends Controller
         return redirect()->route('addrooms')->withMessage('Room has been added successfully!');
 
     }
+
+    public function deleteroom($id)
+    {
+        $room = Room::findOrFail($id);
+
+        $room->delete();
+
+        return redirect()->route('dashboard')->withMessage('Room has been deleted!');
+
+    }
+
 }
