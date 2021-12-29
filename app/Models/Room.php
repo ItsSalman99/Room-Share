@@ -18,6 +18,7 @@ class Room extends Model
         'total_bathrooms',
         'summary',
         'description',
+        'city',
         'address',
         'has_tv',
         'has_kitchen',
@@ -39,5 +40,18 @@ class Room extends Model
     {
         return $this->belongsTo(User::class, 'owner_id', 'id');
     }
+
+
+    function calcDays($date1, $date2)
+    {
+        // Calculating the difference in timestamps
+        $diff = strtotime($date2) - strtotime($date1);
+
+        // 1 day = 24 hours
+        // 24 * 60 * 60 = 86400 seconds
+        return abs(round($diff / 86400));
+    }
+
+
 
 }
