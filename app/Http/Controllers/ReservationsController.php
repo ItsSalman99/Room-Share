@@ -8,6 +8,7 @@ use App\Models\User;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ReservationsController extends Controller
 {
@@ -25,12 +26,12 @@ class ReservationsController extends Controller
             return view('dashboard.admin.reservations')->with(['reservations' => $reservations]);
         }
         else if(Auth::user()->roles->first()->name == 'Host'){
-            $reservations = Reservation::with('user')->paginate(8);
+            $reservations = Reservation::where('room_id',Auth::user()->id)->paginate(8);
 
             return view('dashboard.host.reservations')->with(['reservations' => $reservations]);
         }
         else if(Auth::user()->roles->first()->name == 'User'){
-            $reservations = Reservation::with('user_id', Auth::user()->id)->paginate(8);
+            $reservations = Reservation::where('user_id', Auth::user()->id)->paginate(8);
             return view('dashboard.user.reservations')->with(['reservations' => $reservations]);
         }
     }

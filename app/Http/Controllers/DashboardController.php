@@ -34,6 +34,12 @@ class DashboardController extends Controller
 
             return view('dashboard.host.index')->with(['TotalRooms' => $TRooms, 'TotalReservations'=> $TReservations]);
         }
+        else if(Auth::user()->roles->first()->name == 'User'){
+            $TRooms = Room::where('owner_id',Auth::user()->id)->count();
+            $TReservations = Reservation::count();
+
+            return view('dashboard.user.index')->with(['TotalRooms' => $TRooms, 'TotalReservations'=> $TReservations]);
+        }
 
     }
 
@@ -42,7 +48,7 @@ class DashboardController extends Controller
         if(Auth::user()->roles->first()->name == 'Admin'){
             $rooms = Room::orderBy('id')->simplePaginate(9);
 
-            return view('dashboard.rooms.index')->with(['rooms'=>$rooms]);
+            return view('dashboard.admin.rooms')->with(['rooms'=>$rooms]);
         }
         else if(Auth::user()->roles->first()->name == 'Host'){
             $rooms = Room::where('owner_id',Auth::user()->id)->simplePaginate(9);
