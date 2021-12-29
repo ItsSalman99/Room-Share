@@ -12,7 +12,7 @@
                 <h1 class="text-4xl font-extrabold">{{$room->room_name}} at {{$room->city}}</h1>
                 <span class="text-sm bg-gray-800 rounded-full shadow text-white px-2">Owner: {{$room->owner->name}}</span>
                 <br>
-                <h1 class="text-xl text-gray-600 font-bold">Pkr. {{$room->price}}/Month</h1>
+                <h1 class="text-xl text-gray-600 font-bold">Pkr. {{$room->price}}/Day</h1>
                 <hr><br>
                 <h1 class="text-xl font-bold">Summary:</h1>
                 <span>{{$room->summary}}</span>
@@ -41,7 +41,7 @@
                 <p>{{$room->description}}</p>
             </div>
             <div class="shadow-lg border-2 rounded-xl p-4">
-                <span class="text-lg text-pink-700 font-extrabold">Pkr. {{$room->price}}/Month</span>
+                <span class="text-lg text-pink-700 font-extrabold">Pkr. {{$room->price}}/Day</span>
                 <br><hr><br>
                 <div>
                     <div class="flex justify-between">
@@ -60,12 +60,59 @@
                 <br>
                 <form action="{{ route('roomReserved') }}" method="post">
                     @csrf
+                    <!-- Session Status -->
+                    @if (session('status'))
+                        <div class='font-medium text-sm text-green-600'>
+                            {{ $status }}
+                        </div>
+                    @endif
+
+                    <!-- Validation Errors -->
+                    @if ($errors->any())
+                        <div class="my-4">
+                            <div class="font-medium text-red-600">
+                                {{ __('Whoops! Something went wrong.') }}
+                            </div>
+
+                            <ul class="mt-3 list-disc list-inside text-sm text-red-600 bg-gray-100 p-2 rounded">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    
                     <input type="hidden" name="roomId" value="{{$room->id}}">
+                    <div class="flex justify-center">
+                        
+                        <div class="py-2">
+                            <span class="font-bold">Check In Date</span>
+                            <input required type="date" name="start_date" id="" class="rounded-lg border-2 border-gray-700 w-full">
+                          </div>
+                          <div class="py-2">
+                            <span class="font-bold">Check Out Date</span>
+                            <input required type="date" name="end_date" id="" class="rounded-lg border-2 border-gray-700 w-full">
+                        </div>
+                    </div>
+                    <div class="py-2">
+                        <span class="font-bold">Guests</span>
+                        <select name="tguest" id="" class="rounded-lg border-2 border-gray-700 w-full">
+                          @foreach (range(1,$room->total_occupancy) as $item)
+                              <option value="{{$item}}">{{$item}}</option>
+                            @endforeach
+                        </select>
+                      </div>
                     
                     <button type="submit" class="bg-blue-900 text-white text-lg w-full py-4 rounded-lg">
                         Reserve
                     </button>
                 </form>
+                @role('Admin')
+                    <h1 class="text-xl text-red-700 font-bold">You are an admin.To reserve any room login as user account.</h1>
+                @endrole
+                @role('Host')
+                    <h1 class="text-xl text-red-700 font-bold">You are an admin.To reserve any room login as user account.</h1>
+                @endrole
             </div>
         </div>
     </div>

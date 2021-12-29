@@ -16,13 +16,22 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+                @role('Admin')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('rooms.index')" :active="request()->routeIs('rooms.index')">
                         {{ __('Rooms') }}
                     </x-nav-link>
                 </div>
+                @endrole
+                @role('Host')
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('rooms.index')" :active="request()->routeIs('dashboard')">
+                    <x-nav-link :href="route('rooms.index')" :active="request()->routeIs('rooms.index')">
+                        {{ __('Rooms') }}
+                    </x-nav-link>
+                </div>
+                @endrole
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('user-reservations')" :active="request()->routeIs('user-reservations')">
                         {{ __('Reservations') }}
                     </x-nav-link>
                 </div>

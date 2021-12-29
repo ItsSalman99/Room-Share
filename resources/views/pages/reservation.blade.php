@@ -20,45 +20,50 @@
       </a>
       <h1 class="text-4xl">Confirm & pay</h1>
     </div>
+    
     <div class="grid grid-cols-2 gap-8 py-8">
       <div>
         <h1 class="text-2xl">Your Reservation</h1>
+        
+        @foreach (Cart::content() as $room)
         <div class="py-2">
           <span class="font-bold">Check In Date</span>
-          <input type="date" name="start_date" id="" class="rounded-lg border-2 border-gray-700 w-full">
+          <input required type="date" name="start_date" value="{{$room->options->start_date}}" id="" class="rounded-lg border-2 border-gray-700 w-full">
         </div>
         <div class="py-2">
           <span class="font-bold">Check Out Date</span>
-          <input type="date" name="end_date" id="" class="rounded-lg border-2 border-gray-700 w-full">
+          <input required type="date" name="end_date" id="" value="{{$room->options->end_date}}" class="rounded-lg border-2 border-gray-700 w-full">
         </div>
         <div class="py-2">
           <span class="font-bold">Guests</span>
-          <select name="" id="" class="rounded-lg border-2 border-gray-700 w-full">
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-            <option value="4">Four</option>
+          <select name="tguest" id="" class="rounded-lg border-2 border-gray-700 w-full">
+                <option value="{{$room->options->guest}}">{{$room->options->guest}}</option>
           </select>
         </div>
       </div>
       
       <div class=" border-2 p-4 rounded-lg">
-      @foreach (Cart::content() as $room)
         <div class="flex gap-4">
           <div class="w-2/5">
-              <img src="{{ asset('/assets/imgs/back.jpg') }}" class="rounded-lg" alt="">
+              <img src="{{ asset('storage/rooms/'.$room->options->img) }}" class="rounded-lg" alt="">
           </div>
           <div>
-            <h1 class="text-xl">{{$room->name}}</h1>
-            <p>{{$room->price}}</p>
+            <h1 class="text-xl">{{$room->name}} at {{$room->options->city}}</h1>
+            <p class="bg-gray-800 px-4 rounded-full text-white text-sm">Owner: {{$room->options->owner}}</p>
           </div>
         </div>
         <hr class="my-4">
         <h1 class="text-xl font-bold">Price details</h1>
+        <p>Price: Pkr.{{$room->price}}</p>
+        <p>Sub total: Pkr.{{Cart::subtotal()}}</p>
+        <p>Tax: Pkr.{{Cart::tax()}}</p>
+        <p>Total: Pkr.{{Cart::total()}}</p>
       @endforeach
       </div>
     </div>
     @endif
+    
+    @guest
     <div class="border-2 p-4 rounded-lg">
       <!-- Session Status -->
       @if (session('status'))
@@ -81,7 +86,7 @@
               </ul>
           </div>
       @endif
-       <form action="{{ route('storeCustomer') }}" method="POST">
+      <form action="{{ route('storeCustomer') }}" method="POST">
         @csrf
         <div class="py-2">
           <span class="font-bold">Your Name</span>
@@ -104,8 +109,15 @@
         </button>
 
        </form>
-    </div>
+      </div>
+      @endguest
+      @auth
+        <h1 class="text-xl font-bold">You are already logged in!</h1>  
+        <br>
+        <a href="{{ route('customerprofile') }}" class="bg-gray-800 rounded-lg shadow text-white p-4 my-4">
+          Next
+        </a> 
+      @endauth
   </div>
-
 
 @endsection

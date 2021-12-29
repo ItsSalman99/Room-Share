@@ -114,6 +114,11 @@
                         
                     </textarea>
 
+                    <label for="price" class='mt-4 block font-medium text-sm text-gray-700'>
+                        City
+                    </label>
+                    <input type="text" name="city" min="5000" max="100000.00" step="1000" class="block mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" />
+
                     <div class="flex justify-between">
                         <div class="w-4/5">
                             <label for="has_tv" class='mt-4 block font-medium text-sm text-gray-700'>

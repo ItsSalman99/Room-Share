@@ -82,9 +82,20 @@
                     Rooms
                 </a>
                     @auth
-                        <a href="/dashboard" class="text-gray-800 font-extrabold border-b-2 hover:border-red-600">
-                                {{Auth::user()->name}}   
-                        </a>
+                    <div class="flex justify-between">
+                      <a href="/dashboard" class="text-gray-800 font-extrabold border-b-2 hover:border-red-600 px-2">
+                        {{Auth::user()->name}}   
+                      </a>
+                      <!-- Authentication -->
+                      <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+
+                        <a class="text-gray-800 font-extrabold border-b-2 hover:border-red-600 px-2"
+                                onclick="event.preventDefault();
+                                            this.closest('form').submit();">
+                            {{ __('Log Out') }}
+                      </a>
+                    </form>
                     @else
                         <a href="/login" class="text-gray-800 font-extrabold border-b-2 hover:border-red-600">
                             Login
