@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Rooms') }}
+            {{ __('Your Rooms') }}<span class="text-sm bg-green-200 font-bold px-2 rounded-lg">(You can perform crud operations on your rooms)</span>
         </h2>
     </x-slot>
 
@@ -42,6 +42,9 @@
                             </th>
                             <th scope="col" class="relative px-6 py-3">
                               <span class="sr-only">Edit</span>
+                            </th>
+                            <th scope="col" class="relative px-6 py-3">
+                              <span class="sr-only">Delete</span>
                             </th>
                           </tr>
                         </thead>
@@ -84,7 +87,21 @@
                               </span>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                <a href="#" class="text-white hover:text-gray-200 rounded bg-gray-800 px-2 py-2">EDIT</a>
+                                <a href="{{ route('editroom', $item->id) }}" type="submit" class="flex justify-center text-white hover:text-gray-200 rounded bg-red-800 px-2 py-2">
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                  </svg>
+                                </a>
+                            </td>
+                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                              <form action="{{ route('delroom', $item->id) }}" method="post">
+                                @csrf
+                                <button type="submit" class="flex justify-center text-white hover:text-gray-200 rounded bg-red-800 px-2 py-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                    </svg>
+                                </button>
+                              </form>  
                             </td>
                           </tr>
                           @endforeach

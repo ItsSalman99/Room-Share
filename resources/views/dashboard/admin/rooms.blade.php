@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Rooms') }}
+            {{ __('All Rooms') }} <span class="text-sm bg-green-200 font-bold px-2 rounded-lg">(You cans only delete rooms)</span>
         </h2>
     </x-slot>
 
