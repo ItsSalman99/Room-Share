@@ -31,6 +31,7 @@ Route::get('confirm-booking', [CheckoutController::class,'Confirmbooking'])->mid
 Route::post('/checkout-info', [CustomerController::class, 'profile'])->name('addprofile');
 Route::get('/checkout-pay', [CheckoutController::class, 'payview'])->middleware(['auth'])->name('pay');
 Route::post('/pay-out', [CheckoutController::class, 'confirmPay'])->middleware(['auth'])->name('payout');
+
 //Admin Routes
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth','verified'])->name('dashboard');
 Route::get('/dashboard/rooms', [DashboardController::class, 'rooms'])->middleware(['auth','verified'])->name('rooms.index');
@@ -38,6 +39,8 @@ Route::get('/Add-Rooms', [DashboardController::class, 'addrooms'])->middleware([
 Route::post('/Add-Rooms', [RoomsController::class, 'Create'])->middleware(['auth','verified'])->name('createRooms');
 Route::post('/deleteroom/{id}', [RoomsController::class,'deleteroom'])->name('delroom');
 Route::get('my-reservations', [ReservationsController::class,'myreservations'])->middleware(['auth'])->name('user-reservations');
+Route::get('edit-room/{id}', [RoomsController::class,'edit'])->middleware(['auth','verified'])->name('editroom');
+Route::post('/updateroom/{id}', [RoomsController::class,'update'])->middleware(['auth','verified'])->name('updateroom');
 
 //Customer Routes
 Route::post('/storecustomer', [CustomerController::class, 'store'])->name('storeCustomer');
