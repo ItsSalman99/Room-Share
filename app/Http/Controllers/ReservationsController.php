@@ -26,7 +26,7 @@ class ReservationsController extends Controller
             return view('dashboard.admin.reservations')->with(['reservations' => $reservations]);
         }
         else if(Auth::user()->roles->first()->name == 'Host'){
-            $reservations = Reservation::where('room_id',Auth::user()->id)->paginate(8);
+            $reservations = Reservation::where('host_id',Auth::user()->id)->paginate(8);
 
             return view('dashboard.host.reservations')->with(['reservations' => $reservations]);
         }
@@ -63,6 +63,7 @@ class ReservationsController extends Controller
                 'img' => $room->img, 
                 'city' => $room->city, 
                 'guest'=> $request->tguest, 
+                'ownerId' => $room->owner_id,
                 'owner' => $owner->name
             ]);
         }
