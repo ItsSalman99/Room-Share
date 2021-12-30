@@ -83,6 +83,7 @@
         <input type="hidden" name="guests" value="{{$room->options->guest}}">
         <input type="hidden" name="price" value="{{$room->price}}">
         <input type="hidden" name="total" value="{{$room->total}}">
+        <input type="hidden" name="owner" value="{{$room->options->ownerId}}">
 
         <div class="py-2">
           <span class="font-bold">Add a message:</span>
