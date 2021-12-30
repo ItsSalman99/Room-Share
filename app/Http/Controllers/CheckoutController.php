@@ -35,18 +35,20 @@ class CheckoutController extends Controller
             'guests' => ['required'],
             'price' => ['required'],
             'total' => ['required'],
-            'paytype' => ['required'],            
+            'paytype' => ['required'],  
+            'owner' => ['required']          
         ]);
 
         Reservation::create([
             'user_id' => Auth::user()->id,
+            'host_id' => $request->owner,
             'room_id' => $request->room_id,
             'start_date' => $request->start_date,
             'end_date' => $request->end_date,
             'guests' => $request->guests,
             'price' => $request->price,
             'total' => $request->total,
-            'paytype' => $request->paytype
+            'paytype' => $request->paytype,
         ]);
 
         return view('checkout.welcomecheckout');
