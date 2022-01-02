@@ -31,7 +31,7 @@
         @endif
 
         <form method="POST" action="{{ route('register') }}">
-            {{ csrf_token() }}
+            @csrf
 
             <!-- Name -->
             <div>
