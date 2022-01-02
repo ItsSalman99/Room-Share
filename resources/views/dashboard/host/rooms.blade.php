@@ -54,7 +54,7 @@
                             <td class="px-6 py-4 whitespace-nowrap">
                               <div class="flex items-center">
                                 <div class="flex-shrink-0 h-16 w-16">
-                                  <img class="h-16 w-16 rounded-full" src="{{ asset('storage/rooms/'.$item->img) }}" alt="">
+                                  <img class="h-16 w-16 rounded-full" src="/storage/rooms/'.$item->img" alt="">
                                 </div>
                                 <div class="ml-4">
                                   <div class="text-sm font-medium text-gray-900">
