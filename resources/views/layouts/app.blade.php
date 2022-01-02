@@ -15,6 +15,7 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
