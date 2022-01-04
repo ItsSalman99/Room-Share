@@ -41,8 +41,8 @@ class ReservationsController extends Controller
 
         $request->validate([
             'roomId' => ['required'],
-            'start_date' => ['required'],
-            'end_date' => ['required'],
+            'start_date' => ['required','after:today'],
+            'end_date' => ['required','after:tomorow'],
             'tguest' => ['required',]
         ]);
 
